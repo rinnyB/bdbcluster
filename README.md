@@ -10,5 +10,5 @@ with shell & python scripts
 
 
 #### Start the cluster
-docker-compose build
-docker-compose up --scale node=4
+`docker-compose build`      
+`docker-compose up --scale node=4`
