@@ -8,6 +8,7 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y mongodb
 RUN apt-get install -y unzip
 RUN apt-get install -y wget
+# if we want to curl within containers
 RUN apt-get install -y curl
 
 # get tendermint
@@ -18,6 +19,7 @@ mv tendermint /usr/local/bin
 
 # install bigchaindb
 RUN pip3 install bigchaindb==2.0.0b3
+# lib to parse configs.toml
 RUN pip3 install toml
 
 EXPOSE 22/tcp
@@ -28,6 +30,7 @@ EXPOSE 26658/tcp
 
 # make folder for volume
 RUN mkdir -p data
+# copy scripts
 COPY start.sh start.sh
 RUN chmod +x start.sh
 COPY wrangle.py wrangle.py
