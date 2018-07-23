@@ -39,9 +39,9 @@ echo "Starting all the zoo..."
 # start mongodb
 mongod --fork --bind_ip 127.0.0.1 --logpath /data/mongodb_$HOSTNAME.log --dbpath /data/db_$HOSTNAME &
 # start tendermint node
-nohup tendermint node --proxy_app=kvstore 2>&1 > /data/tendermint_$HOSTNAME.log  &
+nohup tendermint node --proxy_app=kvstore & # 2>&1 > /data/tendermint_$HOSTNAME.log  &
 # start bigchaingdb
-nohup bigchaindb start 2>&1 > /data/bigchaindb_$HOSTNAME.log &
+nohup bigchaindb start & # 2>&1 > /data/bigchaindb_$HOSTNAME.log &
 echo "Which seems to be pretty intense"
 # wait untill all processes finish
 # aka wait forever
